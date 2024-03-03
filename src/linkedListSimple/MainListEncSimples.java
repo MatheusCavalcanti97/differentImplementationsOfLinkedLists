@@ -1,4 +1,4 @@
-package listaEncadeadaSimples;
+package linkedListSimple;
 
 public class MainListEncSimples {
 
