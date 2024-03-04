@@ -5,7 +5,6 @@ public class Node {
 	private int info;
 	private Node proximo;
 	
-	public Node() {}
 	
 	public Node(int info, Node proximo) {
 		this.info = info;

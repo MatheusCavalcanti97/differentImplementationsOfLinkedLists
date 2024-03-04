@@ -13,37 +13,44 @@ public class ListaEncSimples {
 		referencia = newNode;
 	}
 
-	public void remover(int item) { //remover da lista
+	public void exclude(int item) { // remover da lista
 		if (emptyList()) { // verifica se a lista está vazia
 			System.out.println("The List is Empty!");
 			return;
 		}
-		
-		if(item == referencia.getInfo()) { // verifica se o item para ser removido é o primeiro da lista
+
+		if (item == referencia.getInfo()) { // verifica se o item para ser removido é o primeiro da lista
 			referencia = referencia.getProximo();
 			return;
 		}
-		
-		for(Node assistant = referencia; assistant != null; assistant = assistant.getProximo()) {
-			if(assistant.getProximo().getInfo() == item) {
-				if(assistant.getProximo().getProximo() == null) {
+
+		for (Node assistant = referencia; assistant != null; assistant = assistant.getProximo()) {
+			if (assistant.getProximo().getInfo() == item) {
+				
+				if (assistant.getProximo().getProximo() == null) {
 					assistant.setProximo(null);
 					return;
 				}
-				assistant.setProximo(assistant.getProximo().getProximo());
+				
+				else if(assistant.getProximo().getProximo() != null) {
+					assistant.setProximo(assistant.getProximo().getProximo());
+				}
 			}
 		}
 	}
 
-	public void printsListElements() { // retorna a lista com todos elementos que estão ou não inseridos
+	public String printsListElements() { // retorna a lista com todos elementos que estão ou não inseridos
+		String a = "[ ";
 		if (emptyList()) {
 			System.out.println("The List is Empty!");
 		}
 
 		for (Node assistant = referencia; assistant != null; assistant = assistant.getProximo()) {
-			System.out.println(assistant.getInfo() + " ");
+			a += assistant.getInfo() + " ";
 		}
-		System.out.println();
+
+		a += "]";
+		return a;
 	}
 
 	public boolean emptyList() { // verifica se a lista está vazia.
